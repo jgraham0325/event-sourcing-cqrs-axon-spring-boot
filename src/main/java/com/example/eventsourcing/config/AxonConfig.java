@@ -1,6 +1,6 @@
 package com.example.eventsourcing.config;
 
-import com.example.eventsourcing.aggregates.TitleAggregate;
+import com.example.eventsourcing.command.aggregates.TitleAggregate;
 import org.axonframework.eventsourcing.EventSourcingRepository;
 import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.springframework.context.annotation.Bean;

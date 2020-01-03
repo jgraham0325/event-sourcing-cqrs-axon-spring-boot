@@ -1,12 +1,12 @@
 package com.example.eventsourcing.query.handlers;
 
-import com.example.eventsourcing.aggregates.TitleAggregate;
+import com.example.eventsourcing.command.aggregates.TitleAggregate;
 import com.example.eventsourcing.query.entities.EntryQueryEntity;
 import com.example.eventsourcing.query.entities.TitleQueryEntity;
 import com.example.eventsourcing.query.repositories.TitleRepository;
-import com.example.eventsourcing.events.TitleOpenedEvent;
-import com.example.eventsourcing.events.TitleCreatedEvent;
-import com.example.eventsourcing.events.TitleEntryAddedEvent;
+import com.example.eventsourcing.command.events.TitleOpenedEvent;
+import com.example.eventsourcing.command.events.TitleCreatedEvent;
+import com.example.eventsourcing.command.events.TitleEntryAddedEvent;
 import java.util.stream.Collectors;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;

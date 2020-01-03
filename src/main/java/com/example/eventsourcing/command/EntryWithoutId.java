@@ -1,12 +1,10 @@
-package com.example.eventsourcing.events;
+package com.example.eventsourcing.command;
 
 import lombok.Value;
 
 @Value
-public class TitleEntryAddedEvent {
-  String id;
+public class EntryWithoutId {
   Integer entrySequence;
   String roleCode;
   String entryText;
-
 }

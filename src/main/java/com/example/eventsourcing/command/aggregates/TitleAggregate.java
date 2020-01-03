@@ -1,10 +1,11 @@
-package com.example.eventsourcing.aggregates;
+package com.example.eventsourcing.command.aggregates;
 
 import com.example.eventsourcing.command.AddTitleEntryCommand;
 import com.example.eventsourcing.command.CreateTitleCommand;
-import com.example.eventsourcing.events.TitleOpenedEvent;
-import com.example.eventsourcing.events.TitleCreatedEvent;
-import com.example.eventsourcing.events.TitleEntryAddedEvent;
+import com.example.eventsourcing.command.entities.EntryEntity;
+import com.example.eventsourcing.command.events.TitleEntryAddedEvent;
+import com.example.eventsourcing.command.events.TitleCreatedEvent;
+import com.example.eventsourcing.command.events.TitleOpenedEvent;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.example.eventsourcing.events;
+package com.example.eventsourcing.command.events;
 
-import com.example.eventsourcing.aggregates.EntryEntity;
+import com.example.eventsourcing.command.entities.EntryEntity;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
