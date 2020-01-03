@@ -1,15 +1,15 @@
 package com.example.eventsourcing.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EntryWithoutId {
-
-  public final Integer entrySequence;
-  public final String roleCode;
-  public final String entryText;
-
-  public EntryWithoutId(Integer entrySequence, String roleCode, String entryText) {
-    this.entrySequence = entrySequence;
-    this.roleCode = roleCode;
-    this.entryText = entryText;
-  }
-
+  Integer entrySequence;
+  String roleCode;
+  String entryText;
 }

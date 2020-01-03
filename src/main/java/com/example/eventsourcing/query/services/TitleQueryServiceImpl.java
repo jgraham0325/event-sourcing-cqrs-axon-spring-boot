@@ -1,7 +1,7 @@
-package com.example.eventsourcing.services.queries;
+package com.example.eventsourcing.query.services;
 
-import com.example.eventsourcing.entities.TitleQueryEntity;
-import com.example.eventsourcing.entities.repositories.TitleRepository;
+import com.example.eventsourcing.query.entities.TitleQueryEntity;
+import com.example.eventsourcing.query.repositories.TitleRepository;
 import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.springframework.stereotype.Service;
 

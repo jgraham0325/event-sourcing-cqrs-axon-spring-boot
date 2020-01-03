@@ -1,29 +1,19 @@
 package com.example.eventsourcing.aggregates;
 
-import com.example.eventsourcing.commands.AddTitleEntryCommand;
-import com.example.eventsourcing.events.TitleActivatedEvent;
-import com.example.eventsourcing.events.TitleCreatedEvent;
-import com.example.eventsourcing.events.TitleEntryAddedEvent;
-import org.axonframework.commandhandling.CommandHandler;
-import org.axonframework.eventsourcing.EventSourcingHandler;
-import org.axonframework.modelling.command.AggregateLifecycle;
+import com.example.eventsourcing.entities.EntryWithoutId;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 import org.axonframework.modelling.command.EntityId;
 
-public class EntryEntity {
-
+@Value
+@EqualsAndHashCode(callSuper = true)
+public class EntryEntity extends EntryWithoutId {
   @EntityId
-  public final String entryId;
+  String entryId;
 
-  public final Integer entrySequence;
-  public final  String roleCode;
-  public final  String entryText;
-
-
-  public EntryEntity(String entryId, Integer entrySequence, String roleCode, String entryText) {
+  public EntryEntity(String entryId, Integer entrySequence, String roleCode, String entryText){
+    super(entrySequence,roleCode,entryText);
     this.entryId = entryId;
-    this.entrySequence = entrySequence;
-    this.roleCode = roleCode;
-    this.entryText = entryText;
   }
 
 }

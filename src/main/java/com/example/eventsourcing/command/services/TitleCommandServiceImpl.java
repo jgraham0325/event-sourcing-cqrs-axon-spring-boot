@@ -1,9 +1,9 @@
-package com.example.eventsourcing.services.commands;
+package com.example.eventsourcing.command.services;
 
-import com.example.eventsourcing.commands.AddTitleEntryCommand;
-import com.example.eventsourcing.commands.CreateTitleCommand;
-import com.example.eventsourcing.dto.commands.TitleCreateDTO;
-import com.example.eventsourcing.dto.commands.TitleEntryAddDTO;
+import com.example.eventsourcing.command.AddTitleEntryCommand;
+import com.example.eventsourcing.command.CreateTitleCommand;
+import com.example.eventsourcing.command.dtos.TitleCreateDTO;
+import com.example.eventsourcing.command.dtos.TitleEntryAddDTO;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import org.axonframework.commandhandling.gateway.CommandGateway;

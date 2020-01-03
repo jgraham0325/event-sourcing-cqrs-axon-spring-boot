@@ -1,10 +1,12 @@
-package com.example.eventsourcing.entities.handlers;
+package com.example.eventsourcing.query.handlers;
 
 import com.example.eventsourcing.aggregates.TitleAggregate;
-import com.example.eventsourcing.entities.EntryQueryEntity;
-import com.example.eventsourcing.entities.TitleQueryEntity;
-import com.example.eventsourcing.entities.repositories.TitleRepository;
-import com.example.eventsourcing.events.BaseEvent;
+import com.example.eventsourcing.query.entities.EntryQueryEntity;
+import com.example.eventsourcing.query.entities.TitleQueryEntity;
+import com.example.eventsourcing.query.repositories.TitleRepository;
+import com.example.eventsourcing.events.TitleOpenedEvent;
+import com.example.eventsourcing.events.TitleCreatedEvent;
+import com.example.eventsourcing.events.TitleEntryAddedEvent;
 import java.util.stream.Collectors;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;
@@ -23,13 +25,23 @@ public class TitleQueryEntityManager {
     private EventSourcingRepository<TitleAggregate> titleAggregateEventSourcingRepository;
 
     @EventSourcingHandler
-    void on(BaseEvent event){
-        persistTitle(buildQueryTitle(getTitleFromEvent(event)));
+    void on(TitleCreatedEvent event){
+        persistTitle(buildQueryTitle(getTitleFromEvent(event.getId())));
+    }
+
+    @EventSourcingHandler
+    void on(TitleOpenedEvent event){
+        persistTitle(buildQueryTitle(getTitleFromEvent(event.getId())));
+    }
+
+    @EventSourcingHandler
+    void on(TitleEntryAddedEvent event){
+        persistTitle(buildQueryTitle(getTitleFromEvent(event.getId())));
     }
 
 
-    private TitleAggregate getTitleFromEvent(BaseEvent event){
-        return titleAggregateEventSourcingRepository.load(event.id.toString()).getWrappedAggregate().getAggregateRoot();
+    private TitleAggregate getTitleFromEvent(String id){
+        return titleAggregateEventSourcingRepository.load(id).getWrappedAggregate().getAggregateRoot();
     }
 
     private TitleQueryEntity findExistingOrCreateQueryTitle(String id){
@@ -49,7 +61,7 @@ public class TitleQueryEntityManager {
         titleQueryEntity.setStatus(titleAggregate.getStatus());
         titleQueryEntity.setTenure(titleAggregate.getTenure());
         titleQueryEntity.setEntries(titleAggregate.getEntries().stream().map(entry ->
-            new EntryQueryEntity(entry.entryId, entry.entrySequence, entry.roleCode, entry.entryText)).collect(
+            new EntryQueryEntity(entry.getEntryId(), entry.getEntrySequence(), entry.getRoleCode(), entry.getEntryText())).collect(
             Collectors.toList()));
 
         return titleQueryEntity;

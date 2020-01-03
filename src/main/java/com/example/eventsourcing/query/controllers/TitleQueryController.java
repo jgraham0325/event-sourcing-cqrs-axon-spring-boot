@@ -1,7 +1,7 @@
-package com.example.eventsourcing.controllers;
+package com.example.eventsourcing.query.controllers;
 
-import com.example.eventsourcing.entities.TitleQueryEntity;
-import com.example.eventsourcing.services.queries.TitleQueryService;
+import com.example.eventsourcing.query.entities.TitleQueryEntity;
+import com.example.eventsourcing.query.services.TitleQueryService;
 import io.swagger.annotations.Api;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;

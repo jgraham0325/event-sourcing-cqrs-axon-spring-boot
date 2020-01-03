@@ -1,4 +1,4 @@
-package com.example.eventsourcing.entities;
+package com.example.eventsourcing.query.entities;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
