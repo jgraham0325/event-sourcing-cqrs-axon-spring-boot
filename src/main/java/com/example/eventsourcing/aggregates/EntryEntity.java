@@ -1,5 +1,12 @@
 package com.example.eventsourcing.aggregates;
 
+import com.example.eventsourcing.commands.AddTitleEntryCommand;
+import com.example.eventsourcing.events.TitleActivatedEvent;
+import com.example.eventsourcing.events.TitleCreatedEvent;
+import com.example.eventsourcing.events.TitleEntryAddedEvent;
+import org.axonframework.commandhandling.CommandHandler;
+import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.modelling.command.EntityId;
 
 public class EntryEntity {

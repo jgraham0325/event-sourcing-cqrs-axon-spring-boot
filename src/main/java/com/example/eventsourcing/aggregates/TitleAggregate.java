@@ -1,8 +1,10 @@
 package com.example.eventsourcing.aggregates;
 
+import com.example.eventsourcing.commands.AddTitleEntryCommand;
 import com.example.eventsourcing.commands.CreateTitleCommand;
 import com.example.eventsourcing.events.TitleActivatedEvent;
 import com.example.eventsourcing.events.TitleCreatedEvent;
+import com.example.eventsourcing.events.TitleEntryAddedEvent;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -83,6 +85,21 @@ public class TitleAggregate {
   @EventSourcingHandler
   protected void on(TitleActivatedEvent titleActivatedEvent) {
     this.status = String.valueOf(titleActivatedEvent.status);
+  }
+
+  @CommandHandler
+  protected void on(AddTitleEntryCommand addTitleEntryCommand){
+    AggregateLifecycle.apply(
+        new TitleEntryAddedEvent(addTitleEntryCommand.id, addTitleEntryCommand.entrySequence,
+            addTitleEntryCommand.roleCode, addTitleEntryCommand.entryText));
+  }
+
+  @EventSourcingHandler
+  protected void on(TitleEntryAddedEvent titleEntryAddedEvent) {
+    this.entries.add(new EntryEntity(titleEntryAddedEvent.id,
+            titleEntryAddedEvent.getEntrySequence(),
+            titleEntryAddedEvent.getRoleCode(),
+            titleEntryAddedEvent.getEntryText()));
   }
 
   public String getId() {

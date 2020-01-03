@@ -1,7 +1,9 @@
 package com.example.eventsourcing.services.commands;
 
+import com.example.eventsourcing.commands.AddTitleEntryCommand;
 import com.example.eventsourcing.commands.CreateTitleCommand;
 import com.example.eventsourcing.dto.commands.TitleCreateDTO;
+import com.example.eventsourcing.dto.commands.TitleEntryAddDTO;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -28,5 +30,14 @@ public class TitleCommandServiceImpl implements TitleCommandService {
             titleCreateDTO.getApplicationTimestamp(),
             titleCreateDTO.getEstateInterest(),
             titleCreateDTO.getEntries()));
+  }
+
+  @Override
+  public CompletableFuture<String> addTitleEntry(String titleId, TitleEntryAddDTO titleEntryAddDTO) {
+    return commandGateway.send(
+        new AddTitleEntryCommand(titleId,
+            titleEntryAddDTO.getEntrySequence(),
+            titleEntryAddDTO.getRoleCode(),
+            titleEntryAddDTO.getEntryText()));
   }
 }
