@@ -12,9 +12,11 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("query")
 public class TitleQueryEntityManager {
 
     @Autowired
