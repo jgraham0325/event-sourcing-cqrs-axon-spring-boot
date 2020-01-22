@@ -1,0 +1,25 @@
+{
+  "applicationReference": "ABR100",
+  "applicationTimestamp": "2020-01-22T00:26:34.807Z",
+  "classOfTitle": "absolute",
+  "editionDate": "2020-01-22T00:26:34.807Z",
+  "entries": [
+    {
+      "entrySequence": 1,
+      "entryText": "Some sample entry text..",
+      "roleCode": "OJPR"
+    }
+  ],
+  "estateInterest": "estate in land",
+  "proprietors": [
+    {
+      "decor": null,
+      "entrySequence": 1,
+      "foreNames": "John Peter",
+      "surname": "Smith",
+      "title": "Mr"
+    }
+  ],
+  "tenure": "freehold",
+  "titleNumber": "AV100"
+}

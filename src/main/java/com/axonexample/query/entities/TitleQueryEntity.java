@@ -25,4 +25,7 @@ public class TitleQueryEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<EntryQueryEntity> entries;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProprietorQueryEntity> proprietors;
 }

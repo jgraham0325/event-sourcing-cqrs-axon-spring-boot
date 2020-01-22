@@ -4,12 +4,13 @@ import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Value
-public class AddTitleEntryCommand{
+public class AddProprietorCommand {
 
   @TargetAggregateIdentifier
   String titleId;
-  Integer entrySequence;
-  String roleCode;
-  String entryText;
+  String foreNames;
+  String surname;
+  String title;
+  String decor;
 
 }

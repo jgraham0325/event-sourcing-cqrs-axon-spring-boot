@@ -29,7 +29,8 @@ public class TitleCommandServiceImpl implements TitleCommandService {
             titleCreateDTO.getApplicationReference(),
             titleCreateDTO.getApplicationTimestamp(),
             titleCreateDTO.getEstateInterest(),
-            titleCreateDTO.getEntries()));
+            titleCreateDTO.getEntries(),
+            titleCreateDTO.getProprietors()));
   }
 
   @Override

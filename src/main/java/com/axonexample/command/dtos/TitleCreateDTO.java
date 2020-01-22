@@ -1,6 +1,7 @@
 package com.axonexample.command.dtos;
 
 import com.axonexample.command.EntryWithoutId;
+import com.axonexample.command.ProprietorWithoutId;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -16,4 +17,5 @@ public class TitleCreateDTO {
   private OffsetDateTime applicationTimestamp;
   private String estateInterest;
   private List<EntryWithoutId> entries;
+  private List<ProprietorWithoutId> proprietors;
 }

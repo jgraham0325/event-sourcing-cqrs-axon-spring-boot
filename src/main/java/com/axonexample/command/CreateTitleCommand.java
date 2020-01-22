@@ -18,4 +18,5 @@ public class CreateTitleCommand {
   OffsetDateTime applicationTimestamp;
   String estateInterest;
   List<EntryWithoutId> entries;
+  List<ProprietorWithoutId> proprietors;
 }
