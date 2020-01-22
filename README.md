@@ -6,6 +6,8 @@ Example project to demonstrate the capabilities of these technologies
 
 Swagger UI (send commands/queries): http://localhost:8080/swagger-ui.html
 
+Example JSON for creating a title: [link](./src/test/java/example-title.json)
+
 # Under the hood
 
 To see things running behind the scenes...
